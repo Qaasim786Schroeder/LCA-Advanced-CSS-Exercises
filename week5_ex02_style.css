@@ -1,0 +1,137 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Flexbox for Filter Buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #3498db;
+  background: transparent;
+  color: #3498db;
+  cursor: pointer;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Main Gallery Grid */
+.gallery-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Desktop: 4 columns */
+  grid-template-columns: repeat(4, 1fr);
+  transition: all 0.5s ease-in-out;
+}
+
+/* Card Layout using Grid */
+.card {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 200px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.title {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+/* Overlay Styling */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+/* Responsive Breakpoints */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding: 1rem;
+  }
+}
